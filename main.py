@@ -63,14 +63,14 @@ def getProduct(product_name):
     items = json.loads(parse())
     for item in items:
         if product_name in item.values():
-            return item
+            return jsonify(item)
 
 @app.route('/products/<product_name>/<product_field>')
 def getField(product_name, product_field):
     items = json.loads(parse())
     for item in items:
         if product_name in item.values() and product_field in item.keys():
-            return item
+            return jsonify(item)
 
 if __name__ == '__main__':
     app.run()
